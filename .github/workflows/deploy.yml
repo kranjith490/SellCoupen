@@ -31,5 +31,5 @@ jobs:
         AWS_REGION: ${{ secrets.AWS_REGION }}
         S3_BUCKET: ${{ secrets.S3_BUCKET }}
       run: |
-        aws s3 sync build/ s3://$S3_BUCKET --delete
-        aws s3 website s3://$S3_BUCKET/ --index-document index.html
+        aws s3 sync build/ s3://${{ secrets.AWS_SECRET_ACCESS_KEY }} --delete
+        aws s3 website s3://${{ secrets.AWS_SECRET_ACCESS_KEY }}/ --index-document index.html
